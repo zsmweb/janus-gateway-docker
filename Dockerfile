@@ -1,6 +1,8 @@
 FROM ubuntu:16.04
 MAINTAINER Efa-GmbH <team@efa-gmbh.com>
 
+COPY source.list /etc/apt/sources.list
+
 # Copy installation scripts in
 COPY *.sh ./
 
@@ -21,6 +23,8 @@ RUN ./websockets.sh
 COPY apache2/*.conf ./
 # Install and prepare apache
 RUN ./apache.sh
+
+RUN ./mqtt.sh
 
 # Clone, build and install the gateway
 RUN ./janus.sh
