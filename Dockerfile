@@ -26,6 +26,7 @@ RUN ./apache.sh
 
 RUN ./mqtt.sh
 
+RUN apt install -y libconfig-dev
 # Clone, build and install the gateway
 RUN ./janus.sh
 # Put configs in place
